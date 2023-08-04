@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="x-icon " href="logo2.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Box </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/b0e4990d8d.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+         <div class="left">
+            <label for="Html"><i class="fa-brands fa-html5 fa-beat" style="color: #df6501;"></i>  Html</label>
+            <textarea id="html-code" onkeyup="run()"></textarea>
+
+            <label for="Css"><i class="fa-brands fa-css3-alt fa-fade" style="color: #1997e6;"></i> Css</label>
+            <textarea id="css-code" onkeyup="run()"></textarea>
+
+            <label for="java script"><i class="fa-brands fa-fade fa-square-js" style="color: #d4ce11;"></i> Java script</label>
+            <textarea id="js-code" onkeyup="run()"></textarea>
+         </div>
+         <div class="right">
+            <label> <i class="fa-solid fa-play fa-fade" style="color: #1ddda3;"></i>        Output</label>
+            <iframe id="output"></iframe>
+         </div>
+    </div>
+    <script>
+        function run(){
+            let htmlcode=document.getElementById("html-code").value;
+            let csscode=document.getElementById("css-code").value;
+            let jscode=document.getElementById("js-code").value;
+            let output=document.getElementById("output");
+
+            output.contentDocument.body.innerHTML=htmlcode+"<style>"+csscode+"</style>";
+            output.contentWindow.eval(jscode);
+        }
+    </script>
+</body>
+</html>
